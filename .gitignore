@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# debug artifacts
+tsc.log
+typescript_errors.txt
+typescript_errors_utf8.txt
