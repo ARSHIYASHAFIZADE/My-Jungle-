@@ -6,6 +6,7 @@ import { WebGLScene } from '@/components/Scene'
 import { HTMLOverlay } from '@/components/Overlay'
 import { ScrollControls, Scroll } from '@react-three/drei'
 import { MeteorIntro } from '@/components/MeteorIntro'
+import { CanvasErrorBoundary } from '@/components/ErrorBoundary'
 import { stopTheme, startTheme, isThemePlaying } from '@/components/AudioEngine'
 
 export default function Home() {
@@ -72,17 +73,30 @@ export default function Home() {
       )}
 
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 10], fov: 75 }} gl={{ antialias: true }}>
-          <color attach="background" args={['#010508']} />
-          <Suspense fallback={null}>
-            <ScrollControls pages={13.3} damping={0.25} distance={1.2}>
-              <WebGLScene />
-              <Scroll html style={{ width: '100vw' }}>
-                <HTMLOverlay />
-              </Scroll>
-            </ScrollControls>
-          </Suspense>
-        </Canvas>
+        <CanvasErrorBoundary>
+          <Canvas
+            camera={{ position: [0, 0, 10], fov: 75 }}
+            gl={{ antialias: true, powerPreference: 'high-performance', failIfMajorPerformanceCaveat: false }}
+            onCreated={({ gl }) => {
+              const canvas = gl.domElement
+              canvas.addEventListener('webglcontextlost', (e) => {
+                e.preventDefault()
+                console.warn('WebGL context lost — reloading')
+                setTimeout(() => window.location.reload(), 1000)
+              })
+            }}
+          >
+            <color attach="background" args={['#010508']} />
+            <Suspense fallback={null}>
+              <ScrollControls pages={13.3} damping={0.25} distance={1.2}>
+                <WebGLScene />
+                <Scroll html style={{ width: '100vw' }}>
+                  <HTMLOverlay />
+                </Scroll>
+              </ScrollControls>
+            </Suspense>
+          </Canvas>
+        </CanvasErrorBoundary>
       </div>
     </main>
   )

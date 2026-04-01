@@ -21,10 +21,7 @@ import {
   Bloom,
   Vignette,
   Noise,
-  DepthOfField,
-  ChromaticAberration,
   BrightnessContrast,
-  HueSaturation
 } from '@react-three/postprocessing'
 import * as THREE from 'three'
 
@@ -239,7 +236,7 @@ function Birds({ count = 10, color = '#ffaa33' }) {
 
 // ─── GROUND COVER (grass/ferns) ──────────────────────────────────────────────
 function GroundCover() {
-  const count = 600
+  const count = 200
   return (
     <Instances limit={count} position={[0, -20, -25]}>
       <planeGeometry args={[0.5, 1]} />
@@ -414,10 +411,10 @@ function JungleEnvironment() {
           <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5.9, -5]} receiveShadow>
             <circleGeometry args={[30, 64]} />
             <MeshReflectorMaterial
-              blur={[300, 100]}
-              resolution={2048}
+              blur={[200, 80]}
+              resolution={512}
               mixBlur={1}
-              mixStrength={1.5}
+              mixStrength={1}
               roughness={1}
               depthScale={1.2}
               minDepthThreshold={0.4}
@@ -482,14 +479,11 @@ export function WebGLScene() {
 
   return (
     <>
-      <EffectComposer>
-        <Bloom luminanceThreshold={0.2} luminanceSmoothing={0.9} height={300} intensity={1.5} />
-        <DepthOfField focusDistance={0.01} focalLength={0.02} bokehScale={2} />
+      <EffectComposer multisampling={0}>
+        <Bloom luminanceThreshold={0.3} luminanceSmoothing={0.9} height={200} intensity={1.2} />
         <Noise opacity={0.02} />
-        <Vignette eskil={false} offset={0.1} darkness={1.2} />
-        <ChromaticAberration offset={[0.001, 0.001]} />
+        <Vignette eskil={false} offset={0.1} darkness={1.1} />
         <BrightnessContrast brightness={0.05} contrast={0.1} />
-        <HueSaturation hue={0} saturation={0.2} />
       </EffectComposer>
 
       <JungleEnvironment />
