@@ -1,6 +1,23 @@
+<div align="center">
+
 # The Neon Canopy
 
-A premium 3D interactive wildlife experience built with Next.js, React Three Fiber, and procedurally generated audio. Descend into a bioluminescent jungle populated by six mythical creatures, each with hand-drawn SVG illustrations, glassmorphic dossier cards, and a fully synthesized ambient soundtrack.
+**A premium bioluminescent 3D jungle experience — six mythical creatures, procedural audio, cinematic intro**
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://my-jungle-seven.vercel.app)
+[![Next.js](https://img.shields.io/badge/Next.js-16.1.6-black?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![Three.js](https://img.shields.io/badge/Three.js-0.183.2-black?style=for-the-badge&logo=threedotjs&logoColor=white)](https://threejs.org)
+[![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+
+</div>
+
+---
+
+## Overview
+
+Descend into a bioluminescent jungle populated by six mythical creatures. A five-phase cinematic meteor intro leads into a 13-section scroll experience with hand-drawn SVG creature dossiers, real-time procedurally synthesized audio, and a dense Three.js environment — all running in the browser with zero external audio files.
 
 ---
 
@@ -10,141 +27,111 @@ A premium 3D interactive wildlife experience built with Next.js, React Three Fib
 
 The site opens with a five-phase cinematic sequence:
 
-1. **Gate** — Dark star field with "The Neon Canopy" title and a pulsing "Click to Enter" prompt. A "best with sound on" hint prepares the user for audio.
-2. **Meteor Approach** (3.2s) — A canvas-rendered fireball grows from a distant dot, using quartic easing for the first 85% then decelerating into impact. Includes organic wobble, a tapered gradient trail, radial halo, hot white center, and orbiting sparks. A synthesized rising whoosh plays alongside.
-3. **Explosion** — Screen shake, a crater bloom expanding to 6x scale, five colored shockwave rings (orange, amber, cyan, green, purple), 80 debris particles flying outward, a warm residual glow, and a soft white flash (70% peak). A layered crash sound fires on impact.
-4. **"Made with Love"** (2.2s) — Staggered text fades in: "Made with" in subtle white, a pulsing orange heart with glow, gradient "Love" text, and "The Neon Canopy" tagline below. The ambient theme song begins here.
-5. **Crossfade** (1s) — The overlay fades to transparent, revealing the main 3D site.
+1. **Gate** — Dark star field with title and pulsing "Click to Enter" prompt
+2. **Meteor Approach** (3.2s) — Canvas-rendered fireball with quartic easing, organic wobble, tapered gradient trail, radial halo, hot white center, orbiting sparks, and a synthesized rising whoosh
+3. **Explosion** — Screen shake, crater bloom to 6× scale, five colored shockwave rings, 80 debris particles, warm residual glow, layered crash sound
+4. **"Made with Love"** (2.2s) — Staggered text with pulsing orange heart, gradient type, ambient theme song begins
+5. **Crossfade** (1s) — Overlay fades to reveal the 3D scene
 
 ### Six Mythical Creatures
 
-Each creature has a full-screen section with a hand-drawn inline SVG illustration and an animated glassmorphic dossier card featuring stat bars, ability pills, and specimen data.
-
 | Creature | Role | Color | Abilities |
 |----------|------|-------|-----------|
-| **Phantom Tiger** | Apex Predator | Orange `#ff6b35` | Phase Walk, Thermal Lock, Silent Stalk |
-| **Azure Macaws** | Canopy Dweller | Cyan `#13ffe1` | Echo Burst, Dive Bomb, Signal Mimic |
-| **The Silverback** | Forest Guardian | Green `#00ff9d` | Ground Slam, Pack Bond, Resonance Field |
-| **Neon Tree Python** | Canopy Coiler | Green `#00ff9d` | Heat Sense, Scale Cloak, Death Coil |
-| **Bioluminescent Frog** | Toxic Beauty | Cyan `#13ffe1` | Toxic Aura, Light Burst, Leap Strike |
-| **Void Jaguar** | Void Entity | Purple `#bf5fff` | Void Phase, Dark Pulse, Signal Erase, Rift Step |
+| **Phantom Tiger** | Apex Predator | `#ff6b35` | Phase Walk · Thermal Lock · Silent Stalk |
+| **Azure Macaws** | Canopy Dweller | `#13ffe1` | Echo Burst · Dive Bomb · Signal Mimic |
+| **The Silverback** | Forest Guardian | `#00ff9d` | Ground Slam · Pack Bond · Resonance Field |
+| **Neon Tree Python** | Canopy Coiler | `#00ff9d` | Heat Sense · Scale Cloak · Death Coil |
+| **Bioluminescent Frog** | Toxic Beauty | `#13ffe1` | Toxic Aura · Light Burst · Leap Strike |
+| **Void Jaguar** | Void Entity | `#bf5fff` | Void Phase · Dark Pulse · Signal Erase · Rift Step |
 
-### Immersive 3D Environment
+### 3D Environment
 
-Powered by React Three Fiber and Three.js, the scene features:
-
-- **25 procedural jungle trees** (normal and palm variants) with animated swaying vines
-- **6 jumping neon fish** arcing out of a reflective lake
-- **5 walking wireframe animals** with animated leg cycles roaming the terrain
-- **100 drifting fireflies** with additive blending and procedural sine/cos movement
-- **12 circling birds** orbiting at altitude with emissive materials
-- **600 instanced grass/fern** ground cover plants
-- **25 floating glow orbs** cycling through neon colors
-- **50 emissive flowers** arranged in a ring around the lake
-- **Reflective lake** with `MeshReflectorMaterial`, blur, and glowing edge ring
-- **Animated sun** that descends with scroll, wrapped in a wireframe icosahedron shell
-- **Distant mountains and midground cliffs** with emissive edges
+- **25** procedural jungle trees (normal + palm) with animated swaying vines
+- **6** jumping neon fish arcing out of a reflective lake
+- **5** walking wireframe animals with animated leg cycles
+- **100** drifting fireflies with additive blending and sine/cos motion
+- **12** circling birds orbiting at altitude with emissive materials
+- **600** instanced grass/fern ground cover plants (single draw call)
+- **25** floating glow orbs cycling through neon colors
+- **50** emissive flowers in a ring around the lake
+- Reflective lake with `MeshReflectorMaterial`, blur, and glowing edge ring
+- Animated scroll-descending sun wrapped in a wireframe icosahedron
+- Distant mountains and midground cliffs with emissive edges
 - **6,000 stars**, dual cloud layers, and forest environment map
-- **Scroll-reactive lighting** — colors shift through HSL as you scroll
+- Scroll-reactive lighting that shifts through HSL as you scroll
 
 ### Post-Processing Pipeline
 
-Seven effects composed in a single pass:
+Seven effects in a single EffectComposer pass:
 
-| Effect | Configuration |
-|--------|--------------|
-| Bloom | Luminance threshold 0.2, intensity 1.5 |
+| Effect | Config |
+|--------|--------|
+| Bloom | Luminance threshold 0.2 · intensity 1.5 |
 | Depth of Field | Bokeh scale 2 |
 | Film Noise | Opacity 0.02 |
 | Vignette | Darkness 1.2 |
 | Chromatic Aberration | Offset [0.001, 0.001] |
-| Brightness/Contrast | +0.05 / +0.1 |
-| Hue/Saturation | +0.2 saturation |
+| Brightness / Contrast | +0.05 / +0.1 |
+| Hue / Saturation | +0.2 saturation |
 
 ### Procedural Audio Engine
 
-All audio is synthesized in real-time using the Web Audio API — zero external audio files.
+All audio synthesized in real-time — zero external audio files.
 
-**Ambient Theme Song** (generative, loops indefinitely):
-- 8-voice pad layer with chord progression (Am9 → Cmaj7 → Dm → Em7), 8 seconds per chord with 2-second smooth frequency glides
+**Ambient Theme Song** (generative, loops indefinitely)
+- 8-voice pad layer with chord progression Am9 → Cmaj7 → Dm → Em7, 8s per chord with 2s smooth frequency glides
 - LFO-modulated lowpass filter for evolving timbre
-- Pentatonic arpeggio layer at ~85 BPM with per-note gain envelopes
+- Pentatonic arpeggio at ~85 BPM with per-note gain envelopes
 - Sub drone on A2 (110 Hz) with subtle pitch LFO
 - High shimmer layer (bandpass-filtered noise bursts every 5 seconds)
-- 3-second fade-in on start, 2-second fade-out on stop
+- 3s fade-in · 2s fade-out
 
-**Sound Effects:**
-- **Meteor approach whoosh** — Rising-pitch sawtooth oscillator (60→300 Hz) layered with bandpass-filtered wind noise, crescendoing over 3.2 seconds
-- **Impact crash** — Five-layer synthesis: sub boom (55→25 Hz sine), distorted mid thud (150→40 Hz sawtooth through waveshaper), bandpass noise sweep (2000→200 Hz), sparse high-frequency crackle, and metallic ring-out overtones (220/330/440/660 Hz)
+**Sound Effects**
+- **Meteor whoosh** — Rising sawtooth (60→300 Hz) layered with bandpass-filtered wind noise over 3.2 seconds
+- **Impact crash** — 5-layer synthesis: sub boom (55→25 Hz), distorted mid thud (150→40 Hz sawtooth through waveshaper), bandpass noise sweep (2000→200 Hz), high-frequency crackle, metallic ring-out overtones
 
-**Controls:**
-- Mute/unmute toggle button in the bottom-right corner appears after the intro completes
+### Scroll Sections
 
-### Content Sections
-
-The site is organized as a 13.3-page scroll experience:
+13.3-page scroll experience:
 
 | Section | Description |
 |---------|-------------|
-| **Hero** | Transparent overlay showing the full 3D scene with animated scroll indicator |
-| **Signal Transmission 001** | Mission statement with animated conic-gradient border beam, 4 stat tiles, and tag pills |
-| **6 Creature Dossiers** | Full-screen cards for each creature with inline SVGs and animated stat bars |
-| **Manifesto** | "We Believe the Jungle Lives in Code" with decorative corner marks and stat grid |
-| **Depth Map** | 4 habitat layer cards (Canopy Crown, Mid-Canopy, Forest Floor, Void Stratum) |
-| **Expedition Timeline** | 5-step journey from Mist Gate to Apex Overlook with glowing vertical timeline |
-| **Night Bazaar** | Marketplace with 4 stalls (Kinetic Loom, Echo Smiths, Pulse Tea, Drift Berries) and a live Firefly Session event card |
-| **Join The Cause** | Conservation CTA footer with neon button |
-
-### Design System
-
-- **Glassmorphism** — Dark glass panels (`rgba(1,5,8,0.85)`, `backdrop-filter: blur(30px)`) with light refraction pseudo-elements
-- **4 neon accent colors** — Orange `#ff6b35`, Cyan `#13ffe1`, Green `#00ff9d`, Purple `#bf5fff`
-- **Typography** — Outfit (body sans-serif), Playfair Display (display headings)
-- **Responsive** — Mobile-first layout with Tailwind CSS breakpoints
-- **Scroll-driven animations** — Framer Motion `whileInView` triggers and `useScroll` / `useTransform` parallax effects
-- **Per-creature theming** — Each creature card has unique border colors, hover glow escalation, accent lines, and ability pill colors
+| Hero | Transparent overlay over the full 3D scene with scroll indicator |
+| Signal Transmission 001 | Mission statement with animated border beam, 4 stat tiles, tag pills |
+| 6 Creature Dossiers | Full-screen glassmorphic cards with inline SVGs and animated stat bars |
+| Manifesto | "We Believe the Jungle Lives in Code" with decorative marks and stat grid |
+| Depth Map | 4 habitat layer cards (Canopy Crown, Mid-Canopy, Forest Floor, Void Stratum) |
+| Expedition Timeline | 5-step journey from Mist Gate to Apex Overlook |
+| Night Bazaar | Marketplace with 4 stalls and a live Firefly Session event card |
+| Join The Cause | Conservation CTA footer |
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology | Version |
-|-------|-----------|---------|
-| Framework | Next.js (App Router) | 16.1.6 |
-| UI Library | React | 19.2.3 |
-| Language | TypeScript | 5 |
-| 3D Engine | Three.js | 0.183.2 |
-| React 3D Renderer | @react-three/fiber | 9.5.0 |
-| 3D Helpers | @react-three/drei | 10.7.7 |
-| Post-Processing | @react-three/postprocessing | 3.0.4 |
-| Animation | Framer Motion | 12.35.2 |
-| Styling | Tailwind CSS | 4 |
-| Audio | Web Audio API | Native |
-| Fonts | Google Fonts (Outfit, Playfair Display) | via next/font |
+### Core
 
----
+![Next.js](https://img.shields.io/badge/Next.js-16.1.6-black?style=flat-square&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 
-## Project Structure
+### 3D & Animation
 
-```
-src/
-├── app/
-│   ├── globals.css            # Design system: glass effects, neon colors, 10+ keyframe
-│   │                          #   animations, creature card theming, grid/aurora overlays
-│   ├── layout.tsx             # Root layout with font loading and metadata
-│   └── page.tsx               # Main page: Canvas, ScrollControls, audio mute toggle
-└── components/
-    ├── AudioEngine.tsx        # Web Audio API synthesizer — crash, whoosh, ambient
-    │                          #   theme song (chord pads, arpeggio, drone, shimmer)
-    ├── MeteorIntro.tsx        # 5-phase cinematic intro: gate → meteor → explosion
-    │                          #   → "Made with Love" → crossfade
-    ├── Overlay.tsx            # All HTML scroll content: hero, purpose card, 6 creature
-    │                          #   dossiers, manifesto, depth map, timeline, night
-    │                          #   bazaar, footer (1200+ lines)
-    └── Scene.tsx              # Full 3D environment: trees, lake, fish, animals,
-                               #   fireflies, birds, flowers, orbs, mountains, sun,
-                               #   clouds, stars, post-processing (500+ lines)
-```
+![Three.js](https://img.shields.io/badge/Three.js-0.183.2-black?style=flat-square&logo=threedotjs&logoColor=white)
+![R3F](https://img.shields.io/badge/@react--three/fiber-9.5.0-black?style=flat-square&logo=threedotjs&logoColor=white)
+![Drei](https://img.shields.io/badge/@react--three/drei-10.7.7-black?style=flat-square&logo=threedotjs&logoColor=white)
+![Postprocessing](https://img.shields.io/badge/@react--three/postprocessing-3.0.4-black?style=flat-square&logo=threedotjs&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.35.2-0055FF?style=flat-square&logo=framer&logoColor=white)
+
+### Audio
+
+![Web Audio API](https://img.shields.io/badge/Web_Audio_API-Native-FF6B35?style=flat-square)
+
+### Utilities
+
+![clsx](https://img.shields.io/badge/clsx-2.1.1-gray?style=flat-square)
+![tailwind-merge](https://img.shields.io/badge/tailwind--merge-3.5.0-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 
 ---
 
@@ -152,8 +139,8 @@ src/
 
 ### Prerequisites
 
-- **Node.js** 18+ recommended
-- **npm**, **yarn**, **pnpm**, or **bun**
+- Node.js `>= 18`
+- A Chromium-based browser with hardware acceleration enabled
 
 ### Installation
 
@@ -169,9 +156,9 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
-> For the best experience, use a Chromium-based browser with hardware acceleration enabled and **sound on**.
+> For the best experience, use Chrome or Edge with **sound on** and hardware acceleration enabled.
 
 ### Production Build
 
@@ -180,47 +167,63 @@ npm run build
 npm start
 ```
 
-### Lint
-
-```bash
-npm run lint
-```
-
 ---
 
-## Browser Compatibility
+## Project Structure
 
-| Feature | Requirement |
-|---------|------------|
-| WebGL 2 | Required for 3D scene rendering |
-| Web Audio API | Required for procedural audio synthesis |
-| Backdrop Filter | Required for glassmorphism effects |
-| ES2020+ | Required (async/await, optional chaining) |
-
-Tested on Chrome, Edge, and Firefox. Safari may have minor WebGL performance differences.
+```
+src/
+├── app/
+│   ├── globals.css         Design system: glass effects, neon colors,
+│   │                       10+ keyframe animations, creature theming
+│   ├── layout.tsx          Root layout with font loading and metadata
+│   └── page.tsx            Main page: Canvas, ScrollControls, audio toggle
+└── components/
+    ├── AudioEngine.tsx     Web Audio API synthesizer — crash, whoosh,
+    │                       ambient theme (chord pads, arpeggio, drone)
+    ├── MeteorIntro.tsx     5-phase cinematic intro: gate → meteor →
+    │                       explosion → "Made with Love" → crossfade
+    ├── Overlay.tsx         All HTML scroll content: hero, purpose card,
+    │                       6 creature dossiers, manifesto, depth map,
+    │                       timeline, night bazaar, footer (1200+ lines)
+    └── Scene.tsx           Full 3D environment: trees, lake, fish,
+                            animals, fireflies, birds, flowers, orbs,
+                            mountains, sun, clouds, post-processing
+```
 
 ---
 
 ## Performance Notes
 
-- **Instanced meshes** for ground cover (600 instances in a single draw call)
-- **Single-pass post-processing** composing 7 effects via EffectComposer
-- **Points geometry** for fireflies (100 vertices in one `THREE.Points` object)
-- **Procedural audio** synthesized at runtime with zero network requests
-- **Scroll management** handled by drei's `ScrollControls` with damping for smooth 60fps
-- **Module-level constants** for debris particles and other static data (computed once, never re-rendered)
+- Instanced meshes for 600 ground cover plants in a single draw call
+- Single-pass EffectComposer composing 7 post-processing effects
+- `THREE.Points` for 100 fireflies as a single geometry object
+- All audio synthesized at runtime — zero network audio requests
+- `ScrollControls` with damping for smooth 60fps scroll handling
+- Module-level static data computed once, never re-created on render
+
+---
+
+## Browser Requirements
+
+| Feature | Requirement |
+|---------|-------------|
+| WebGL 2 | Required for 3D scene |
+| Web Audio API | Required for procedural audio |
+| Backdrop Filter | Required for glassmorphism |
+| ES2020+ | Required |
+
+Tested on Chrome, Edge, and Firefox. Safari may have minor WebGL performance differences.
 
 ---
 
 ## Deployment
 
-Deploy to any platform that supports Next.js:
-
-| Platform | Command |
-|----------|---------|
-| **Vercel** (recommended) | `vercel deploy` |
+| Platform | Notes |
+|----------|-------|
+| **Vercel** (live) | Zero-config Next.js deployment |
 | **Netlify** | Use the Next.js build plugin |
-| **Docker** | Standard Next.js Dockerfile |
+| **Docker** | Standard Next.js standalone Dockerfile |
 
 ---
 
@@ -230,4 +233,11 @@ All rights reserved.
 
 ---
 
-*Built with Three.js, WebGL, Framer Motion, Web Audio API, and custom shaders.*
+<div align="center">
+
+*Built with Three.js · React Three Fiber · Framer Motion · Web Audio API*
+
+[![GitHub](https://img.shields.io/badge/GitHub-ARSHIYASHAFIZADE-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/ARSHIYASHAFIZADE)
+[![Live](https://img.shields.io/badge/Live-my--jungle--seven.vercel.app-6366f1?style=flat-square&logo=vercel&logoColor=white)](https://my-jungle-seven.vercel.app)
+
+</div>
